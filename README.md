@@ -173,6 +173,8 @@ pip install <package>
 
 - Used for building Deep-Learning Models
 
+## Version Control
+
 > Library Version Control
 > Note: the library versions used in the book are listed below and should be the installed versions to ensure
 > compatibility
