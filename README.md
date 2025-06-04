@@ -79,17 +79,17 @@ pip install <package> --upgrade
 
 ## Anaconda Python Distro and Package Manager
 
-### Anaconda Installer
+**Anaconda Installer**
 
 https://docs.anaconda.com/anaconda/install
 
-### Miniconda Installer (RECOMMENDED)
+**Miniconda Installer (RECOMMENDED)**
 
 A leaner alternative to Anaconda that comes without any packages pre-installed
 
 https://docs.conda.io/en/latest/miniconda.html
 
-#### 1. Install Miniconda
+### 1. Install Miniconda
 
 ```bash
 mkdir -p ~/miniconda3
@@ -98,7 +98,7 @@ bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm ~/miniconda3/miniconda.sh
 ```
 
-#### 2. Manually add `conda` to `PATH`
+### 2. Manually add `conda` to `PATH`
 
 Allows you access to the `conda` command in the CLI without defaulting your terminal bash sessions to a conda (base) env
 
@@ -106,7 +106,7 @@ Allows you access to the `conda` command in the CLI without defaulting your term
 export PATH="$HOME/miniconda3/bin:$PATH"
 ```
 
-#### 3. Create a conda virtual environment
+### 3. Create a conda virtual environment
 
 ```bash
 conda create -n <env_name> python=<version>
@@ -114,25 +114,25 @@ conda create -n <env_name> python=<version>
 
 example: conda create -n chapter1 python=3.9
 
-#### 4. Activate conda virtual env
+### 4. Activate conda virtual env
 
 ```bash
 conda activate <env_name>
 ```
 
-#### 5. Install package in Miniconda Virtual Env
+### 5. Install package in Miniconda Virtual Env
 
 ```bash
 conda install <package>
 ```
 
-#### 6. Update Existing Packages
+### 6. Update Existing Packages
 
 ```bash
 conda update <package>
 ```
 
-### Package Availability
+### **Package Availability**
 
 Packages not available through the official conda channel may be available via the community supported conda-forge project (https://conda-forge.org)
 
