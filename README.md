@@ -176,12 +176,12 @@ pip install <package>
 > Library Version Control
 > Note: the library versions used in the book are listed below and should be the installed versions to ensure
 > compatibility
-
-- NumPy 1.21.2
-- SciPy 1.70
-- Scikit-learn 1.0
-- Matplotlib 3.4.3
-- pandas 1.3.2
+>
+> - NumPy 1.21.2
+> - SciPy 1.70
+> - Scikit-learn 1.0
+> - Matplotlib 3.4.3
+> - pandas 1.3.2
 
 Note: after installing the packages you can double check the version number by accessing the **version** attribute:
 
