@@ -85,7 +85,7 @@ https://docs.anaconda.com/anaconda/install
 
 **Miniconda Installer (RECOMMENDED)**
 
-A leaner alternative to Anaconda that comes without any packages pre-installed
+- A leaner alternative to Anaconda that comes without any packages pre-installed
 
 https://docs.conda.io/en/latest/miniconda.html
 
@@ -153,18 +153,27 @@ pip install <package>
 
 # Data Science & ML Packages
 
-1. NumPy
-   - we will use NumPy's multi-dimensional arrays to store and manipulate data
-2. Pandas
-   - we will use Pandas (dataframes) to help with manipulating tabular data
-3. Matplotlib
-   - We will use Matplotlib to visualize quantitative data
-4. Scikit-learn
-   - Main machine learning library
-5. PyTorch
-   - Used for building Deep-Learning Models
+## 1. NumPy
 
-## Library Version Control
+- we will use NumPy's multi-dimensional arrays to store and manipulate data
+
+## 2) Pandas
+
+- we will use Pandas (dataframes) to help with manipulating tabular data
+
+## 3) Matplotlib
+
+- We will use Matplotlib to visualize quantitative data
+
+## 4. Scikit-learn
+
+- Main machine learning library
+
+## 5. PyTorch
+
+- Used for building Deep-Learning Models
+
+### Library Version Control
 
 Note: the library versions used in the book are listed below and should be the installed versions to ensure
 compatibility
