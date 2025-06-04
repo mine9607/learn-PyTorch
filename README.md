@@ -153,27 +153,27 @@ pip install <package>
 
 # Data Science & ML Packages
 
-## 1. NumPy
+## NumPy
 
 - we will use NumPy's multi-dimensional arrays to store and manipulate data
 
-## 2) Pandas
+## Pandas
 
 - we will use Pandas (dataframes) to help with manipulating tabular data
 
-## 3) Matplotlib
+## Matplotlib
 
 - We will use Matplotlib to visualize quantitative data
 
-## 4. Scikit-learn
+## Scikit-learn
 
 - Main machine learning library
 
-## 5. PyTorch
+## PyTorch
 
 - Used for building Deep-Learning Models
 
-### Library Version Control
+## Library Version Control
 
 Note: the library versions used in the book are listed below and should be the installed versions to ensure
 compatibility
