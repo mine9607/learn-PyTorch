@@ -53,7 +53,7 @@ There are three main types of machine learning:
 
 ## Python
 
-1. Create a python virtual environment
+### 1. Create a python virtual environment
 
 ```bash
 python -m .venv venv
