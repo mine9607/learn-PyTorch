@@ -120,16 +120,40 @@ example: conda create -n chapter1 python=3.9
 conda activate <env_name>
 ```
 
-### 5. Install package in Miniconda Virtual Env
+### 5. List Available Conda Package Versions
+
+```bash
+conda search <package>
+```
+
+### 6. Install package in Miniconda Virtual Env
 
 ```bash
 conda install <package>
 ```
 
-### 6. Update Existing Packages
+### 7. Update Existing Packages
 
 ```bash
 conda update <package>
+```
+
+### 8. List Conda Envs
+
+```bash
+conda info --envs
+```
+
+### 9. Export Conda Env
+
+```bash
+conda env export > environment.yml
+```
+
+### 10. Recreate a Conda Env
+
+```bash
+conda env create -f environment.yml
 ```
 
 ### **Package Availability**
