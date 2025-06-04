@@ -173,10 +173,9 @@ pip install <package>
 
 - Used for building Deep-Learning Models
 
-> > Library Version Control
-
-Note: the library versions used in the book are listed below and should be the installed versions to ensure
-compatibility
+> Library Version Control
+> Note: the library versions used in the book are listed below and should be the installed versions to ensure
+> compatibility
 
 - NumPy 1.21.2
 - SciPy 1.70
