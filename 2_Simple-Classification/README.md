@@ -54,3 +54,10 @@ The Transpose operation transforms a column vector into a row vector and vice ve
 $$
 a^T b = \sum_i a_i b_i = a_1 \cdot b_1 + a_2 \cdot b_2 + a_3 \cdot b_3
 $$
+
+## Perceptron Learning Rule
+
+1. Initialize the weights and bias unit to 0 or small random numbers
+2. For each training example $x^(i)$:
+   a - Compute the output value, $y_hat^(i)$
+   b - Update the weights and bias unit
