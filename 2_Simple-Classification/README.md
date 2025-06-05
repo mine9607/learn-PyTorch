@@ -69,7 +69,9 @@ of the bias unit and each weight $w_j$, in the weight vector **w**
 
 $$
 w_j := w_j + \Delta w_j
+$$
 
+$$
 b := b + \Delta b
 $$
 
