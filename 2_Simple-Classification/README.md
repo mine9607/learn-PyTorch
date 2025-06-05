@@ -89,6 +89,9 @@ Each weight $w_j$ corresponds to a feature $x_j$ in the dataset
 
 $\eta$ is the `learning_rate` (typically between 0 and 1)
 
-$y^{(i)}$ is the **true class label**
+$y^{(i)}$ is the `true class label`
 
-$\hat{y}^{(i)}$ is the **predicted class label**
+$\hat{y}^{(i)}$ is the `predicted class label`
+
+> Note: the convergence of the perceptron is ONLY guaranteed if the two classes are linearly separable (due to the cost
+> function `decision` function being defined as unit step function (0 or 1) in this case
