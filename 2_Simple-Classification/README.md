@@ -37,7 +37,7 @@ a_1 \\
 a_2 \\
 a_3
 \end{bmatrix},
- b =
+b =
 \begin{bmatrix}
 b_1 \\
 b_2 \\
