@@ -173,4 +173,25 @@ poetry.toml
 # LSP config files
 pyrightconfig.json
 
+# Datasets
+# Ignore common dataset folders
+data/
+datasets/
+*.csv
+*.tsv
+*.data
+*.arff
+*.zip
+*.tar.gz
+*.h5
+*.hdf5
+*.npz
+*.npy
+*.pickle
+*.pkl
+*.json
+*.xls
+*.xlsx
+
+
 # End of https://www.toptal.com/developers/gitignore/api/python
