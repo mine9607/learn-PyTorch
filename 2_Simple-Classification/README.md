@@ -68,5 +68,5 @@ Here the output value is the class label predicted by the unit step function def
 of the bias unit and each weight $w_j$, in the weight vector **w**
 
 $$
-w_j := w_j +{delta}w_j
+w_j := w_j + \Delta w_j
 $$
