@@ -69,4 +69,13 @@ of the bias unit and each weight $w_j$, in the weight vector **w**
 
 $$
 w_j := w_j + \Delta w_j
+
+b := b + \Delta b
 $$
+
+The update values (deltas) are computed as:
+
+$$
+\Delta w_j = \Eta(y^{(i)} - \hat{y}^{(i)})x_j^{i}
+$$
+
