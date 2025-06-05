@@ -77,6 +77,8 @@ The update values (deltas) are computed as:
 
 $$
 \Delta w_j = \eta \left(y^{(i)} - \hat{y}^{(i)}\right) x_j^{(i)}
+$$
 
+$$
 \Delta b = \eta \left(y^{(i)} - \hat{y}^{(i)}\right)
 $$
