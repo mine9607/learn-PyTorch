@@ -25,3 +25,16 @@ $$
 So it is either "ON" or "OFF" (binary classification)
 
 To simplify code implementation of this we move $\theta$ to the left side and add a _bias_ unit $\mathbf{b=-\theta}$.
+
+### Linear Algebra: Dot Product and Matrix Transpose
+
+We use the vector dot product to abbreviate the sum of the products of the values in x and w:
+
+$$
+\a =
+\begin[cases]
+a_1\\
+a_2\\
+a_3\\
+\end[cases]
+$$
