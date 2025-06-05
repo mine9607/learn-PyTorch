@@ -84,3 +84,11 @@ $$
 $$
 \Delta b = \eta \left(y^{(i)} - \hat{y}^{(i)}\right)
 $$
+
+Each weight $w_j$ corresponds to a feature $x_j$ in the dataset
+
+$\eta$ is the `learning_rate` (typically between 0 and 1)
+
+$y^{(i)}$ is the **true class label**
+
+$\hat{y}^{(i)}$ is the **predicted class label**
