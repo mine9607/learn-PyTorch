@@ -24,4 +24,4 @@ $$
 
 So it is either "ON" or "OFF" (binary classification)
 
-To simplify code implementation of this we move $_theta to the left side and add a *bias* unit **$b=-\theta$\*\*
+To simplify code implementation of this we move $\theta$ to the left side and add a _bias_ unit \*\*$b=-\theta$\*\*
