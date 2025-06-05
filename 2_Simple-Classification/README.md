@@ -36,7 +36,7 @@ a =
 a_1 \\
 a_2 \\
 a_3
-\end{bmatrix},
+\end{bmatrix},\quad
 b =
 \begin{bmatrix}
 b_1 \\
