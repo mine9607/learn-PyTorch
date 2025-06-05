@@ -21,3 +21,7 @@ $$
 0 & \text{otherwise}
 \end{cases}
 $$
+
+So it is either "ON" or "OFF" (binary classification)
+
+To simplify code implementation of this we move $_theta to the left side and add a *bias* unit **$b=-\theta$\*\*
