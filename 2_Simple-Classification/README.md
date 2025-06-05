@@ -26,6 +26,10 @@ So it is either "ON" or "OFF" (binary classification)
 
 To simplify code implementation of this we move $\theta$ to the left side and add a _bias_ unit $\mathbf{b=-\theta}$.
 
+$$
+z = w_1x_1 + ... + w_mx_m + b = w^Tx + b
+$$
+
 ### Linear Algebra: Dot Product and Matrix Transpose
 
 We use the vector dot product to abbreviate the sum of the products of the values in x and w:
@@ -43,4 +47,10 @@ b_1 \\
 b_2 \\
 b_3
 \end{bmatrix}
+$$
+
+The Transpose operation transforms a column vector into a row vector and vice versa
+
+$$
+a^T b = \sum_i a_i b_i = a_1 \cdot b_1 + a_2 \cdot b_2 + a_3 \cdot b_3
 $$
