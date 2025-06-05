@@ -63,3 +63,12 @@ $$
    a - Compute the output value, $\hat{y}^{(i)}$
 
    b - Update the weights and bias unit
+
+Here the output value is the class label predicted by the unit step function defined above and the simultaneous update
+of the bias unit and each weight $w_j$, in the weight vector **w**
+
+$$
+w_j := w_j +{delta}w_j
+
+
+$$
