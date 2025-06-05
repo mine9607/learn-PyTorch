@@ -31,11 +31,13 @@ To simplify code implementation of this we move $\theta$ to the left side and ad
 We use the vector dot product to abbreviate the sum of the products of the values in x and w:
 
 $$
+\a =
 \begin{bmatrix}
 a_1 \\
 a_2 \\
 a_3
 \end{bmatrix},
+\b =
 \begin{bmatrix}
 b_1 \\
 b_2 \\
