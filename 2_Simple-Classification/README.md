@@ -12,12 +12,12 @@ $$
 z = w_1x_1 + w_2x_2 + ...+ w_mx_m
 $$
 
-In the perceptron algorithm, the decision function $sigma$ is a variant of a unit step function:
+In the perceptron algorithm, the decision function $\sigma$ is a variant of a unit step function:
 
 $$
 \sigma(z) =
 \begin{cases}
-1 & if z>=0 \\
+1 & if z \geq 0 \\
 0 & \text{otherwise}
 \end{cases}
 $$
