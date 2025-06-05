@@ -58,6 +58,6 @@ $$
 ## Perceptron Learning Rule
 
 1. Initialize the weights and bias unit to 0 or small random numbers
-2. For each training example $x^(i)$:
-   a - Compute the output value, $\hat{y}^(i)$
+2. For each training example $x^{(i)}$:
+   a - Compute the output value, $\hat{y}^{(i)}$
    b - Update the weights and bias unit
