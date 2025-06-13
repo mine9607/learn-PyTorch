@@ -115,5 +115,23 @@ One key of supervised learning is a well-defined **objective function** or loss 
 In the case of Adaline, we define the loss function L, to learn the model parameters as the **mean squared error (MSE)** between the calculated outcome and the true class label
 
 $$
-L(w, b) = \frac{1}{n} \sum_{i=1}^{n} (y^{(i)} - \sigma(z^{(i)})^2
+L(w, b) = \frac{1}{n} \sum_{i=1}^{n} (y^{(i)} - \sigma(z^{(i)}))^2
 $$
+
+There are important features of this loss function L:
+
+1. It is continuous and therefore differentiable.
+2. It is convex--allows us to use a powerful optimization algorithm called **gradient descent** to find the weights (minimize the loss function)
+
+### Gradient Descent:
+
+In each step or iteration we take a step in the direction **OPPOSITE** to the gradient where the step size is determined by the value of the `learning rate` as well as the `slope of the gradient`
+
+This can be written as:
+
+$$
+w := w + \delta{w}
+
+b := b + \delta{b}
+$$
+
