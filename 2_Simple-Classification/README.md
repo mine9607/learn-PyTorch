@@ -190,3 +190,9 @@ $$
 $$
 \frac{\partial L}{\partial b} = -\frac{2}{n}\sum_i(y^{(i)}-\sigma(z^{(i)}))
 $$
+
+> Although the adaline learning rule looks identical to the perceptron rule, $\sigma(z^{(i)})$ is a real number and not an integer class label.
+>
+> The weight update is calculated based on **ALL** examples in the training dataset (instead of updating incrementally after each training example)
+>
+> This approach is also referred to as **batch gradient descent** or **full batch gradient descent**
