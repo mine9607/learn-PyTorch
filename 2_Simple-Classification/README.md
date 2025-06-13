@@ -172,9 +172,15 @@ $$
 The adaline learning rule becomes:
 
 $$
-\mathbf{w} := \mathbf{w}+ \Delta \mathbf{w}
+w := w+ \Delta w
 $$
 
 $$
 b:=b+\Delta b
 $$
+
+> NOTE: The result of the partial derivatives get evaluated to the following:
+>
+> $$
+> \frac{\partial L}{\partial w_j} = -\frac{2}{n}\sum_i(y^{(i)}-\sigma(z^{(i)}))x_j^{(i)}
+> $$
