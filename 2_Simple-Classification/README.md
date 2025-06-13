@@ -103,3 +103,17 @@ $\hat{y}^{(i)}$ is the `predicted class label`
 In the adaline rule the weights are updated based on a linear activation function rather than a unit step function.
 
 In Adaline, the linear activation function $\sigma(z) = z$
+
+In this type of neuron the linear activation function is used to learn the weights but a threshold function (such as unit step) is still used to make the final prediction
+
+## Minimizing Loss Functions with Gradient Descent
+
+One key of supervised learning is a well-defined **objective function** or loss function to be optimized during the learning process.
+
+> NOTE: Think about minimizing the SSE of a prediction
+
+In the case of Adaline, we define the loss function L, to learn the model parameters as the **mean squared error (MSE)** between the calculated outcome and the true class label
+
+$$
+L(w, b) = 1/n \sum(y^{(i)} - \sigma(z^{(i)})^2
+$$
