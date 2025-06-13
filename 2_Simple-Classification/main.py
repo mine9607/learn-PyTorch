@@ -10,6 +10,7 @@ from utils import plot_decision_regions
 DATA_PATH = "iris.data"
 URL = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
 
+# Check if the path exists and if not download the data to to the path
 if not os.path.exists(DATA_PATH):
     import urllib.request
 
@@ -24,12 +25,11 @@ print(df.tail())
 
 # Select Setosa and Versicolor
 
-y = df.iloc[0:100, 4].values
+y = df.iloc[0:500, 4].values
 
 y = np.where(y == "Iris-setosa", 0, 1)
 
-# extract sepal length and petal length
-
+# extract sepal length and petal length for the first 100 rows, select columns by index position (first and third) and convert to a numpy array (.values)
 X = df.iloc[0:100, [0, 2]].values
 
 # plot data
@@ -42,7 +42,7 @@ plt.ylabel("Petal length [cm]")
 plt.legend(loc="upper left")
 plt.show()
 
-ppn = Perceptron(eta=0.1, n_iter=10)
+ppn = Perceptron(eta=0.1, n_iter=20)
 ppn.fit(X, y)
 plt.plot(range(1, len(ppn.errors_) + 1), ppn.errors_, marker="o")
 plt.xlabel("Epochs")

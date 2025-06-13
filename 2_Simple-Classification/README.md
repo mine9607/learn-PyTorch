@@ -95,3 +95,11 @@ $\hat{y}^{(i)}$ is the `predicted class label`
 
 > Note: the convergence of the perceptron is ONLY guaranteed if the two classes are linearly separable (due to the cost
 > function `decision` function being defined as unit step function (0 or 1) in this case
+
+## Adaptive Linear Neurons and the Convergence of Learning
+
+`ADAptive LInear NEuron` (Adaline) - improves upon the simple perceptron
+
+In the adaline rule the weights are updated based on a linear activation function rather than a unit step function.
+
+In Adaline, the linear activation function $sigma(z) = z$
