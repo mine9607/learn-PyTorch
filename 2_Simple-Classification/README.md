@@ -130,7 +130,9 @@ In each step or iteration we take a step in the direction **OPPOSITE** to the gr
 This can be written as:
 
 $$
-\w := w + \delta{w}
+w := w + \delta{w}
+$$
 
-\b := b + \delta{b}
+$$
+b := b + \delta{b}
 $$
