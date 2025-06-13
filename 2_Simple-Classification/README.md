@@ -142,3 +142,13 @@ The changes are defined as the negative gradient multiplied by the learning rate
 $$
 \Delta w = -\eta\nabla_wL(w,b)
 $$
+
+$$
+\Delta b = -\eta\nabla_bL(w,b)
+$$
+
+To compute the gradient of the loss function we need to compute the partial derivative of the loss function wrt each weight, $w_j$
+
+$$
+frac{\delta L}{\delta w_j}
+$$
