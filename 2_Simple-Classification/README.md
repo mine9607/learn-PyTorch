@@ -156,3 +156,15 @@ $$
 $$
 \frac{\partial L}{\partial b} = -\frac{2}{n}\sum_i (y^{(i)}-\sigma(z^{(i)}))
 $$
+
+> NOTE: The 2 is just a scaling factor and can be omitted--doing so has the effect of changing the scaling rate by a factor of 2
+
+We can then write the weight updates as:
+
+$$
+\Delta w_j = -\eta\frac{\partial L}{\partial w_j}
+$$
+
+$$
+\Delta b = -\eta\frac{\partial L}{\partial b}
+$$
