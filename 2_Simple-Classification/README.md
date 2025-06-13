@@ -171,4 +171,10 @@ $$
 
 The adaline learning rule becomes:
 
-$w:=w+\Delta w$ and $b:=b+\Delta b$
+$$
+w:=w+\Delta w
+$$
+
+$$
+b:=b+\Delta b
+$$
