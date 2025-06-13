@@ -140,5 +140,5 @@ $$
 The changes are defined as the negative gradient multiplied by the learning rate $eta$
 
 $$
-\Delta w = -\eta\gradient_wL(w,b)
+\Delta w = -\eta\nabla_wL(w,b)
 $$
