@@ -136,3 +136,9 @@ $$
 $$
 b := b + \Delta b
 $$
+
+The changes are defined as the negative gradient multiplied by the learning rate $eta$
+
+$$
+\Delta w = -\eta\gradient_wL(w,b)
+$$
