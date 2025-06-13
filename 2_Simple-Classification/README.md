@@ -179,8 +179,14 @@ $$
 b:=b+\Delta b
 $$
 
-> NOTE: The result of the partial derivatives get evaluated to the following:
->
-> $$
-> \frac{\partial L}{\partial w_j} = -\frac{2}{n}\sum_i(y^{(i)}-\sigma(z^{(i)}))x_j^{(i)}
-> $$
+### Resulting Partial Derivatives
+
+The result of the partial derivatives get evaluated to the following:
+
+$$
+\frac{\partial L}{\partial w_j} = -\frac{2}{n}\sum_i(y^{(i)}-\sigma(z^{(i)}))x_j^{(i)}
+$$
+
+$$
+\frac{\partial L}{\partial b} = -\frac{2}{n}\sum_i(y^{(i)}-\sigma(z^{(i)}))
+$$
