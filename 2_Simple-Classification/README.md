@@ -102,4 +102,4 @@ $\hat{y}^{(i)}$ is the `predicted class label`
 
 In the adaline rule the weights are updated based on a linear activation function rather than a unit step function.
 
-In Adaline, the linear activation function $sigma(z) = z$
+In Adaline, the linear activation function $\sigma(z) = z$
