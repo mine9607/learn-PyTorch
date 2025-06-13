@@ -152,3 +152,7 @@ To compute the gradient of the loss function we need to compute the partial deri
 $$
 \frac{\partial L}{\partial w_j} = -\frac{2}{n}\sum_i (y^{(i)}-\sigma(z^{(i)}))x_j^{(i)}
 $$
+
+$$
+\frac{\partial L}{\partial b} = -\frac{2}{n}\sum_i (y^{(i)}-\sigma(z^{(i)}))
+$$
