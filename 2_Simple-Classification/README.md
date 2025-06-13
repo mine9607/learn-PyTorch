@@ -150,5 +150,5 @@ $$
 To compute the gradient of the loss function we need to compute the partial derivative of the loss function wrt each weight, $w_j$
 
 $$
-frac{\delta L}{\delta w_j}
+\frac{\partial L}{\partial w_j} = -\frac{2}{n}\sum_i (y^{(i)}-\sigma(z^{(i)}))x_j^{(i)}
 $$
