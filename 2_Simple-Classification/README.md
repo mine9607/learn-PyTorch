@@ -115,5 +115,5 @@ One key of supervised learning is a well-defined **objective function** or loss 
 In the case of Adaline, we define the loss function L, to learn the model parameters as the **mean squared error (MSE)** between the calculated outcome and the true class label
 
 $$
-L(w, b) = 1/n \sum(y^{(i)} - \sigma(z^{(i)})^2
+L(w, b) = \frac{1}{n} \sum_{i=1}^{n} (y^{(i)} - \sigma(z^{(i)})^2
 $$
