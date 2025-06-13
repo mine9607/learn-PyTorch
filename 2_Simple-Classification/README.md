@@ -168,3 +168,7 @@ $$
 $$
 \Delta b = -\eta\frac{\partial L}{\partial b}
 $$
+
+The adaline learning rule becomes:
+
+$w:=w+\Delta w$ and $b:=b+\Delta b$
