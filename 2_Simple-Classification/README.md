@@ -172,7 +172,7 @@ $$
 The adaline learning rule becomes:
 
 $$
-w:=w+\Delta w
+\mathbf{w}:=\mathbf{w}+\Delta \mathbf{w}
 $$
 
 $$
