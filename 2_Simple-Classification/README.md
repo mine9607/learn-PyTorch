@@ -264,7 +264,7 @@ SGD also allows for **online learning**, where our model is trained on the fly a
 
 #### a. Forward Pass
 
-- For each training example $x^{(i)}$, compute:
+- For each training example `x^i`, compute:
 
 $$
 z^{(i)} = w^T * x^{(i)} + b
@@ -285,10 +285,14 @@ $$
 #### c. Backward Pass (Compute Gradients)
 
 - For each weight `w_j`, compute the average gradient over all examples:
-  $$
-  ∂L/∂w_j = (1/n) * sum(∂l^(i)/∂w_j for i = 1 to n)
-  ∂L/∂b = (1/n) * sum(∂l^(i)/∂b for i = 1 to n)
-  $$
+
+$$
+\frac{\partial{L}}{\partial{w_j}} = \frac{1}{n} * sum_{i=1}^n(\frac{\partial{l^({i})}}{\partial{w_j}}
+$$
+
+$$
+∂L/∂b = (1/n) * sum(∂l^(i)/∂b for i = 1
+$$
 
 #### d. Gradient Descent Update
 
