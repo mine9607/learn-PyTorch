@@ -264,7 +264,7 @@ SGD also allows for **online learning**, where our model is trained on the fly a
 
 #### a. Forward Pass
 
-- For each training example `$x^{(i)}$`, compute:
+- For each training example $x^{(i)}$, compute:
 
 $$
 z^{(i)} = w^T * x^{(i)} + b
