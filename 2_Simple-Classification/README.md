@@ -287,7 +287,7 @@ $$
 - For each weight `w_j`, compute the average gradient over all examples:
 
 $$
-\frac{\partial{L}}{\partial{w_j}} = \frac{1}{n} \sum_{i=1}^n \frac{\partial{l^{(i)}}}{\partial{w_j}}
+\frac{\partial{L}}{\partial{w_j}} = \frac{1}{n} \sum_{i=1}^n \frac{\partial{l^{(i)}}}{\partial{w_j}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})x_j^{(i)}
 $$
 
 $$
