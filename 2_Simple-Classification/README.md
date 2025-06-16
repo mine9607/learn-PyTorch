@@ -266,10 +266,10 @@ SGD also allows for **online learning**, where our model is trained on the fly a
 
 - For each training example `x^(i)`, compute:
 
-  $$
-  z^{(i)} = w^T * x^{(i)} + b
-  y_hat^{(i)} = \sigmoid(z^{(i)})
-  $$
+$$
+z^{(i)} = w^T * x^{(i)} + b
+y_hat^{(i)} = \sigmoid(z^{(i)})
+$$
 
 #### b. Compute Loss
 
