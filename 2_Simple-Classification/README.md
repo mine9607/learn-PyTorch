@@ -297,8 +297,14 @@ $$
 #### d. Gradient Descent Update
 
 - Update weights and bias:
-  w*j ← w_j - η * ∂L/∂w*j (for each j)
-  b ← b - η * ∂L/∂b
+
+$$
+w_j = w_j - \eta \frac{\partial{L}}{\partial{w_j}}
+$$
+
+$$
+b = b - \eta \frac{\partial{L}}{\partial{b}}
+$$
 
 ---
 
