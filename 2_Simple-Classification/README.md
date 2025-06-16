@@ -237,7 +237,7 @@ NOTE: Since each gradient is calculated based on a single training example, the 
 
 To obtain good results with SGD it is important to present training data in a `random order`--we want to shuffle the training dataset for every epoch to prevent cycles.
 
-> Adjusting Learning Rate During Training: In SGD, the fixed LR $\eta$ is often replaced by an adaptive learning rate that decreases over time
+> **Adjusting Learning Rate During Training:** In SGD, the fixed LR $\eta$ is often replaced by an adaptive learning rate that decreases over time
 >
 > $$
 > \frac{c_1}{[number of iterations]+c_2}
