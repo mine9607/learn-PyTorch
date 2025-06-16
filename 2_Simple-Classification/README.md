@@ -230,3 +230,17 @@ $$
 $$
 \Delta b = \eta(y^{(i)}-\sigma(z^{(i)}))
 $$
+
+It is considered an approximation to Full Scale GD but reaches convergence much faster since weights are updated more frequently.
+
+NOTE: Since each gradient is calculated based on a single training example, the error surface is noisier than in GD. This can have the advantage that SGD can escape shallow local minima more readily if working with nonlinear loss functions
+
+To obtain good results with SGD it is important to present training data in a `random order`--we want to shuffle the training dataset for every epoch to prevent cycles.
+
+> Adjusting Learning Rate During Training: In SGD, the fixed LR $\eta$ is often replaced by an adaptive learning rate that decreases over time
+>
+> $$
+> \frac{c_1}{[number of iterations]+c_2}
+> $$
+>
+> where $c_1$ and $c_2$ are constants
