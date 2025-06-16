@@ -205,8 +205,28 @@ Gradient descent is one of the algorithms that benefits from feature scaling. We
 
 ### Standardization
 
-Mathematically we standardize a feature by:
+Mathematically we standardize a feature by subtracting the sample mean and dividing by the standard deviation:
 
 $$
-x_j'=\frac{x_j - \mu_j}{\sigma_J}
+x_j'=\frac{x_j - \mu_j}{\sigma_j}
+$$
+
+## Large-scale ML and Stochastic Gradient Descent
+
+With full batch gradient descent we must evaluate the entire dataset each time we want to make a step towards the global minimum which is computationally expensive on very large datasets (millions of data points). To improve on this it is common to implement `Stochastic Gradient Descent (SGD)`. Instead of updating the weights based on the sum of the accumulated errors over ALL training examples, we update the parameters incrementally for each training example:
+
+Full Scale GD:
+
+$$
+\Delta w_j = \frac{2\eta}{n} \sum_i (y^{(i)} - \sigma (z^{(i)}))x_j^{(i)}
+$$
+
+Stochastic GD:
+
+$$
+\Delta w_j = \eta(y^{(i)} - \sigma (z^{(i)}))x_j^{(i)}
+$$
+
+$$
+\Delta b = \eta(y^{(i)}-\sigma(z^{(i)}))
 $$

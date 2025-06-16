@@ -25,9 +25,10 @@ df: pd.DataFrame = pd.read_csv(DATA_PATH, header=None, encoding="utf-8")  # type
 print(df.tail())
 
 # Select Setosa and Versicolor
-
+# Take column 4 of the first 100 rows of the dataframe
 y = df.iloc[0:100, 4].values
 
+# Use one-hot encoding to create a labeled data set of 0 == "Iris-setosa" and 1 == "Not Iris-Setosa"
 y = np.where(y == "Iris-setosa", 0, 1)
 
 # extract sepal length and petal length for the first 100 rows, select columns by index position (first and third) and convert to a numpy array (.values)
@@ -79,6 +80,13 @@ plt.legend(loc="upper left")
 plt.autoscale()
 plt.show()
 
+# Standardizing the dataset
+X_std = np.copy(X)
+X_std[:, 0] = (X[:, 0] - X[:, 0].mean()) / X[:, 0].std()  # standardize sepal length
+X_std[:, 1] = (X[:, 1] - X[:, 1].mean()) / X[:, 1].std()  # standardize petal length
+
+ada_std = Adaline(n_iter=20, eta=0.5)
+ada_std.fit(X_std, y)
 
 plot_decision_regions(X, y, classifier=aln)
 plt.xlabel("Sepal lenngth [cm]")
@@ -86,4 +94,18 @@ plt.ylabel("Petal length [cm]")
 plt.title("Adaline Classifier - LR=0.001")
 plt.legend(loc="upper left")
 plt.autoscale()
+plt.show()
+
+plot_decision_regions(X_std, y, classifier=ada_std)
+plt.title("Adaline - Gradient Descent - Standardized")
+plt.xlabel("Sepal length [standardized]")
+plt.ylabel("Petal length [standardized]")
+plt.legend(loc="upper left")
+plt.tight_layout()
+plt.show()
+
+plt.plot(range(1, len(ada_std.losses_) + 1), ada_std.losses_, marker="o")
+plt.xlabel("Epochs")
+plt.ylabel("Mean squared error")
+plt.tight_layout()
 plt.show()
