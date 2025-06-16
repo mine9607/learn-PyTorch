@@ -279,7 +279,7 @@ $$
 - Use the Mean Squared Error (MSE) loss:
 
 $$
-L = \frac{1}{n} * \sum((y^{(i)} - \hat{y}^{(i)})^2 for i = 1 to n)
+L = \frac{1}{n} * \sum_{i=1}^n(y^{(i)} - \hat{y}^{(i)})^2
 $$
 
 #### c. Backward Pass (Compute Gradients)
