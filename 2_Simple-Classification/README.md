@@ -244,3 +244,56 @@ To obtain good results with SGD it is important to present training data in a `r
 > $$
 >
 > where $c_1$ and $c_2$ are constants
+
+SGD also allows for **online learning**, where our model is trained on the fly as new data arrives. Using online learning the system can immediately adapt to changes, and the training data can be discarded after updating the model if storage space is an issue.
+
+# SUMMARY OF STEPS
+
+## Gradient Descent
+
+## Full-Batch Gradient Descent (with Sigmoid + MSE Loss)
+
+### 1. Initialize Parameters
+
+- Randomly initialize weights `w_1, w_2, ..., w_d`
+- Initialize bias `b`
+
+---
+
+### 2. For Each Epoch
+
+#### a. Forward Pass
+
+- For each training example `x^(i)`, compute:
+  $$
+  z^(i) = w^T * x^(i) + b
+  y_hat^(i) = sigmoid(z^(i))
+  $$
+
+#### b. Compute Loss
+
+- Use the Mean Squared Error (MSE) loss:
+
+$$
+L = (1/n) * sum((y^(i) - y_hat^(i))^2 for i = 1 to n)
+$$
+
+#### c. Backward Pass (Compute Gradients)
+
+- For each weight `w_j`, compute the average gradient over all examples:
+  $$
+  ∂L/∂w_j = (1/n) * sum(∂l^(i)/∂w_j for i = 1 to n)
+  ∂L/∂b = (1/n) * sum(∂l^(i)/∂b for i = 1 to n)
+  $$
+
+#### d. Gradient Descent Update
+
+- Update weights and bias:
+  w*j ← w_j - η * ∂L/∂w*j (for each j)
+  b ← b - η * ∂L/∂b
+
+---
+
+### 3. Repeat
+
+- Continue until convergence or maximum number of epochs is reached.
