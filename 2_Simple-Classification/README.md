@@ -196,3 +196,17 @@ $$
 > The weight update is calculated based on **ALL** examples in the training dataset (instead of updating incrementally after each training example)
 >
 > This approach is also referred to as **batch gradient descent** or **full batch gradient descent**
+
+## Improving Gradient Descent: Feature Scaling
+
+Gradient descent is one of the algorithms that benefits from feature scaling. We can use a normalization procedure called `standardization` to help GD converge more quickly.
+
+> NOTE: Standardization does not make the dataset normally distributed. It simply shifts the mean of each feature so that it is centered at zero with standard deviation of 1.
+
+### Standardization
+
+Mathematically we standardize a feature by:
+
+$$
+x_j'=\frac{x_j - \mu_j}{\sigma_J}
+$$

@@ -51,6 +51,16 @@ class Adaline:
         self.b_ = np.float64(0.0)
         self.losses_ = []
 
+        for _ in range(self.n_iter):
+            net_input = self.net_input(X)
+            output = self.activation(net_input)
+            errors = y - output
+            self.w_ += self.eta * 2.0 * X.T.dot(errors) / X.shape[0]
+            self.b_ += self.eta * 2.0 * errors.mean()
+            loss = (errors**2).mean()
+            self.losses_.append(loss)
+        return self
+
     def net_input(self, X):
         """Calculate net input"""
         return np.dot(X, self.w_) + self.b_
