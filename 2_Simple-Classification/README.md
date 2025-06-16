@@ -364,7 +364,7 @@ w_j = w_j - \eta \frac{\partial{L^{(i)}}}{\partial{w_j}}
 $$
 
 $$
-b = b - \eta \frac{\partial{L^{(i)}}{\partial{b}}
+b = b - \eta \frac{\partial{L^{(i)}}}{\partial{b}}
 $$
 
 ---
