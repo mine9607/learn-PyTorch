@@ -291,7 +291,7 @@ $$
 $$
 
 $$
-\frac{L}{b} = \frac{1}{n} \sum_i\frac{\partial{l}^{(i)}}{\partial{b}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})
+\frac{\partial{L}}{\partial{b}} = \frac{1}{n} \sum_i\frac{\partial{l}^{(i)}}{\partial{b}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})
 $$
 
 #### d. Gradient Descent Update
