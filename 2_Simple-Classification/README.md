@@ -249,8 +249,6 @@ SGD also allows for **online learning**, where our model is trained on the fly a
 
 # SUMMARY OF STEPS
 
-## Gradient Descent
-
 ## Full-Batch Gradient Descent (with Sigmoid + MSE Loss)
 
 ### 1. Initialize Parameters
@@ -287,11 +285,11 @@ $$
 - For each weight `w_j`, compute the average gradient over all examples:
 
 $$
-\frac{\partial{L}}{\partial{w_j}} = \frac{1}{n} \sum_i \frac{\partial{l^{(i)}}}{\partial{w_j}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})x_j^{(i)}
+\frac{\partial{L}}{\partial{w_j}} = \frac{1}{n} \sum_i \frac{\partial{L^{(i)}}}{\partial{w_j}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})x_j^{(i)}
 $$
 
 $$
-\frac{\partial{L}}{\partial{b}} = \frac{1}{n} \sum_i\frac{\partial{l}^{(i)}}{\partial{b}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})
+\frac{\partial{L}}{\partial{b}} = \frac{1}{n} \sum_i\frac{\partial{L}^{(i)}}{\partial{b}} = -\frac{2}{n}\sum_i(y^{(i)}-\hat{y}^{(i)})
 $$
 
 #### d. Gradient Descent Update
@@ -311,3 +309,66 @@ $$
 ### 3. Repeat
 
 - Continue until convergence or maximum number of epochs is reached.
+
+---
+
+## Stochastic Gradient Descent (SGD) — Sigmoid + MSE Loss
+
+### 1. Initialize Parameters
+
+- Randomly initialize weights `w_1, w_2, ..., w_d`
+- Initialize bias `b`
+
+---
+
+### 2. For Each Epoch
+
+- Shuffle the training data
+
+- For each training example `(x^(i), y^(i))`:
+
+  #### a. Forward Pass
+
+$$
+z^{(i)} = w^T * x^{(i)} + b
+$$
+
+$$
+\hat{y}^{(i)} = \sigma(z^{(i)})
+$$
+
+#### b. Compute Instantaneous Squared Error
+
+- Compute the **squared error** for this example:
+
+$$
+L^{(i)} = (y^{(i)}-\hat{y}^{(i)})^2
+$$
+
+#### c. Compute Gradients
+
+- For each weight `w_j` and the bias `b`, compute the gradients using only this one data point:
+
+$$
+\frac{\partial{L^{(i)}}}{\partial{w_j}}
+$$
+
+$$
+\frac{\partial{L^{(i)}}}{\partial{b}}
+$$
+
+#### d. Update Parameters
+
+$$
+w_j = w_j - \eta \frac{\partial{L^{(i)}}}{\partial{w_j}}
+$$
+
+$$
+b = b - \eta \frac{\partial{L^{(i)}}{\partial{b}}
+$$
+
+---
+
+### 3. Repeat
+
+- Continue looping through examples across epochs until convergence or a max number of epochs is reached.
