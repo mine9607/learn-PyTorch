@@ -3,7 +3,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from adaline import Adaline
+from adaline import Adaline, AdalineSGD
 from perceptron import Perceptron
 from utils import plot_decision_regions
 
@@ -107,5 +107,21 @@ plt.show()
 plt.plot(range(1, len(ada_std.losses_) + 1), ada_std.losses_, marker="o")
 plt.xlabel("Epochs")
 plt.ylabel("Mean squared error")
+plt.tight_layout()
+plt.show()
+
+ada_sgd = AdalineSGD(n_iter=15, eta=0.01, random_state=1)
+ada_sgd.fit(X_std, y)
+
+plot_decision_regions(X_std, y, classifier=ada_sgd)
+plt.title("Adaline - SGD")
+plt.xlabel("Sepal Length [standardized]")
+plt.ylabel("Petal Length [standardized]")
+plt.legend(loc="upper left")
+plt.tight_layout()
+plt.show()
+plt.plot(range(1, len(ada_sgd.losses_) + 1), ada_sgd.losses_, marker="o")
+plt.xlabel("Epochs")
+plt.ylabel("Average Loss")
 plt.tight_layout()
 plt.show()

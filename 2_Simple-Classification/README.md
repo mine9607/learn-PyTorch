@@ -247,6 +247,13 @@ To obtain good results with SGD it is important to present training data in a `r
 
 SGD also allows for **online learning**, where our model is trained on the fly as new data arrives. Using online learning the system can immediately adapt to changes, and the training data can be discarded after updating the model if storage space is an issue.
 
+> ** Mini-batch Gradient Descent**
+> Compromise between full-batch GD and SGD
+>
+> Applies full-batch GD to a smaller subset of the training data (e.g. 32 training examples at a time)
+>
+> Converges faster than full-batch GD and allows us to replace the for loop over the training datat in SGD with vectorized operations improving computational efficiency.
+
 # SUMMARY OF STEPS
 
 ## Full-Batch Gradient Descent (with Sigmoid + MSE Loss)
