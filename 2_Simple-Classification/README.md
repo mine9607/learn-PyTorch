@@ -27,6 +27,14 @@ So it is either "ON" or "OFF" (binary classification)
 To simplify code implementation of this we move $\theta$ to the left side and add a _bias_ unit $\mathbf{b=-\theta}$.
 
 $$
+z >= \theta
+$$
+
+$$
+z - \theta >=0
+$$
+
+$$
 z = w_1x_1 + ... + w_mx_m + b = w^Tx + b
 $$
 
