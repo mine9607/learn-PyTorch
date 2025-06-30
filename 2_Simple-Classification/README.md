@@ -5,14 +5,14 @@
 1. Net Input (z):
    The perceptron first computes the **weighted sum** of inputs:
    $z = w_1x_1 + w_2x_2 + ... + w_nx_n + b$
-   This is the `net input`, sometimes written as **$\mathbf{w} \cdot \mathbf{x} +b$**, which will be passed to the model's activation/decision function
+   This is the `net input`, sometimes written as $\mathbf{w} \cdot \mathbf{x} +b$, which will be passed to the model's activation/decision function
 2. Decision Function ($\sigma(z)$):
    The decision function defines **how** the model makes predictions based on the net input z.
 
    - In a binary perceptron, this is often a step function
    - In more advanced models, decision functions include **sigmoid**, **softmax**, or **argmax** depending on the task
 
-   > 📝 Note: In a single-layer perceptron--the decision function and activation function are typically the same.
+> 📝 Note: In a single-layer perceptron--the decision function and activation function are typically the same.
 
 3. Activation Function:
    In multi-layer networks, an `activation function` is applied at each neuron to introduce non-linearity (ReLU, Sigmoid, Tanh, Softmax, etc.)
