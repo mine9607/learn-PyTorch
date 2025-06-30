@@ -17,7 +17,7 @@ In the perceptron algorithm, the decision function $\sigma$ is a variant of a un
 $$
 \sigma(z) =
 \begin{cases}
-1 & if z \geq 0 \\
+1 & if z \geq \theta \\
 0 & \text{otherwise}
 \end{cases}
 $$
