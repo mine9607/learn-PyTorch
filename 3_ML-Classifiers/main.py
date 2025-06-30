@@ -1,8 +1,16 @@
+import os
+import sys
+
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets
 from sklearn.linear_model import Perceptron
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
+
+sys.path.append(os.path.abspath("../2_Simple-Classification"))
+from utils import plot_decision_regions
 
 iris = datasets.load_iris()
 
@@ -35,3 +43,20 @@ ppn.fit(X_train_std, y_train)
 y_pred = ppn.predict(X_test_std)
 
 print("Misclassified examples: %d" % (y_test != y_pred).sum())
+
+print("Accuracy: %.3f" % accuracy_score(y_test, y_pred))
+print("Accuracy: %.3f" % ppn.score(X_test_std, y_test))
+
+
+X_combined_std = np.vstack((X_train_std, X_test_std))
+y_combined = np.hstack((y_train, y_test))
+
+plot_decision_regions(
+    X=X_combined_std, y=y_combined, classifier=ppn, test_idx=range(105, 150)
+)
+
+plt.xlabel("Petal length [standardized]")
+plt.ylabel("Petal width [standardized]")
+plt.legend(loc="upper left")
+plt.tight_layout()
+plt.show()

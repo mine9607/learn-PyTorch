@@ -44,9 +44,14 @@ It is important to scale features (0 to 1) for optimal performance and accuracy.
 2. Instantiate the Perceptron instance with `eta0=0.01` and `random_state=1`
 3. Fit the Perceptron to the training data using the `fit()` method: `ppn.fit(X_train_std, y_train)`
 4. Predict the labels for the test inputs: `y_pred=ppn.predict(X_test)`
+5. Calculate the misclassification percentage (error): `% (y_test != y_pred).sum())`
 
 #### Classification Error vs Accuracy
 
 > Instead of the misclassification error, many machine learning practitioners report the classification accuracy of a model, which is simply calculated as follows:
 >
 > 1-error
+
+### Classification Metrics:
+
+1.
