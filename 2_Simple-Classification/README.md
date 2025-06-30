@@ -1,5 +1,32 @@
 # Chapter 2
 
+## Summary of Math of Perceptron
+
+1. Net Input (z):
+   The perceptron first computes the **weighted sum** of inputs:
+   $ z = w_1x_1 + w_2x_2 + ... + w_nx_n + b $
+   This is the `net input`, sometimes written as $\mathbf{w} \cdot \mathbf{x} +b$, which will be passed to the model's activation/decision function
+2. Decision Function ($\sigma(z)$):
+   The decision function defines **how** the model makes predictions based on the net input z.
+
+   - In a binary perceptron, this is often a step function
+   - In more advanced models, decision functions include **sigmoid**, **softmax**, or **argmax** depending on the task
+
+   > 📝 Note: In a single-layer perceptron--the decision function and activation function are typically the same.
+
+3. Activation Function:
+   In multi-layer networks, an `activation function` is applied at each neuron to introduce non-linearity (ReLU, Sigmoid, Tanh, Softmax, etc.)
+
+   > 📝 Note: This enables deep networks to learn complex patterns beyond linear relationships
+
+4. Optimization via Gradient Descent
+   We use **gradient descent** (or a varient SGD or Adam) to update the weights **w** and bias **_b_**, minimizing a `loss function` like SSE or MSE
+
+   - This is done by computing the gradient of the loss with respect to each parameter and taking steps in the negative direction
+
+5. Prediction
+   Once trained, the; perceptron takes new input vectors, computes the net input z, and applies the learned decision function $\sigma(z)$ to make predictions
+
 ## Training Simple Machine Learning Algorithms for Classification
 
 - Build and understand machine learning algorithms
