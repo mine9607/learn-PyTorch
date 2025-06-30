@@ -2,8 +2,8 @@
 
 ## Summary of Math of Perceptron
 
-1. Net Input (z):
-   The perceptron first computes the **weighted sum** of inputs:
+1. \*\*Net Input (z):\*
+   The perceptron first computes the \*\*weighted sum\*\* of inputs:
    $z = w_1x_1 + w_2x_2 + ... + w_nx_n + b$
    This is the `net input`, sometimes written as $\mathbf{w} \cdot \mathbf{x} +b$, which will be passed to the model's activation/decision function
 2. Decision Function ($\sigma(z)$):
