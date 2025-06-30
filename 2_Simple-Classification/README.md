@@ -12,7 +12,7 @@
    - In a binary perceptron, this is often a step function
    - In more advanced models, decision functions include **sigmoid**, **softmax**, or **argmax** depending on the task
 
-> 📝 Note: In a single-layer perceptron--the decision function and activation function are typically the same.
+   > 📝 Note: In a single-layer perceptron--the decision function and activation function are typically the same.
 
 3. Activation Function:
    In multi-layer networks, an `activation function` is applied at each neuron to introduce non-linearity (ReLU, Sigmoid, Tanh, Softmax, etc.)
