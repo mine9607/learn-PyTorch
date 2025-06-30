@@ -8,7 +8,7 @@
    $z = w_1x_1 + w_2x_2 + ... + w_nx_n + b$
    This is the `net input`, sometimes written as $\mathbf{w} \cdot \mathbf{x} +b$, which will be passed to the model's activation/decision function
 
-2. **Decision Function ($\sigma(z)$):**
+2. **Decision Function ( $\sigma(z)$ ):**
 
    The decision function defines **how** the model makes predictions based on the net input z.
 
