@@ -94,4 +94,4 @@ $$
 
 where z = net input = $w^Tx + b$
 
-Note that, $\sigma{(z)}$ goes to 1 as z goes to $\infty$
+Note that, $\sigma{(z)}$ goes to 1 as z goes to $\infty$, and $\sigma{(z)}$ goes to 0 as z goes to $-\infty$
