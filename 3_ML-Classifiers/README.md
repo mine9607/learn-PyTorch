@@ -91,3 +91,7 @@ The inverse logit function is called the `logistic sigmoid function` aka `sigmoi
 $$
 \sigma{(z)} = \frac{1}{1+e^{-z}}
 $$
+
+where z = net input = $w^Tx + b$
+
+> NOTE: $\sigma{(z)} -> 1 $
