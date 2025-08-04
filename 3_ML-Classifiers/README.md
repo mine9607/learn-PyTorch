@@ -83,3 +83,11 @@ In logistic regression we **_ASSUME_** that there is a linear relationship betwe
 $$
 \text{logit}(p) = w_1x_1 + ... + w_mx_m + b = \sum_{i=j}{w_jx_j} + b = w^Tx+b
 $$
+
+> If the logit function maps the probability to a real number range, the `inverse logit function` maps a real-number range back to a [0, 1] range for the probability (p)
+
+The inverse logit function is called the `logistic sigmoid function` aka `sigmoid function` due to its characteristic S shape
+
+$$
+\sigma{(z)} = \frac{1}{1+\exp{-z}}
+$$
