@@ -73,5 +73,5 @@ The basis for the classification of an example via logistic regression relies on
 The `logit function` is defined as the logarithm of the odds (log-odds):
 
 $$
-\text{logit}(p) = \logarhim{\frac{p}{(1-p)}}
+\text{logit}(p) = \log{\frac{p}{(1-p)}}
 $$
