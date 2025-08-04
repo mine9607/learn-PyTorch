@@ -10,7 +10,7 @@ class Adaline:
         Learning rate (between 0.0 and 1.0)
 
     n_iter : int
-        Passes over the trianing dataset
+        Passes over the trianing dataset (epochs)
 
     random_state : int
         Random number generator seed for random weight initializations
@@ -46,31 +46,48 @@ class Adaline:
         ---
         self : Object
         """
+
+        # set the random seed in numpy
         rgen = np.random.RandomState(self.random_state)
+        # 1D array of weights (1 per feature)
         self.w_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
+        # scalar single value of bias term
         self.b_ = np.float64(0.0)
+        # array of loss values per example: true label - predicted label
         self.losses_ = []
 
-        for _ in range(self.n_iter):
+        # for each EPOCH
+        for i in range(self.n_iter):
+            # net_input = sum(w_i * X_i) + b
             net_input = self.net_input(X)
+
+            # linear activation function (not step like with perceptron)::: sigma(z) = z
             output = self.activation(net_input)
+            # true label - predicted label
             errors = y - output
+            # Partial derivative of weights matrix for gradient descent
             self.w_ += self.eta * 2.0 * X.T.dot(errors) / X.shape[0]
+            # Partial derivative of bias term for gradient descent
             self.b_ += self.eta * 2.0 * errors.mean()
+            # Loss function (Mean Square Error) from ALL VALUES, EACH EPOCH
             loss = (errors**2).mean()
+            # Track the loss per EPOCH for plotting loss improvement per EPOCH
             self.losses_.append(loss)
         return self
 
     def net_input(self, X):
         """Calculate net input"""
+        # Calculate the net input z = w_1*x_1 + ... w_n * x_n + b = w^Tx + b
         return np.dot(X, self.w_) + self.b_
 
-    def activation(self, X):
+    def activation(self, net_input):
         """Compute linear activation"""
-        return X
+        # Simply return the net_input as the result of the decision function since it is linear
+        return net_input
 
     def predict(self, X):
         """Return class label after unit step"""
+        # Adaline returns a probability of a class match float (continuous) rather than 0 or 1 int like perceptron (step)
         return np.where(self.activation(self.net_input(X)) >= 0.5, 1, 0)
 
 

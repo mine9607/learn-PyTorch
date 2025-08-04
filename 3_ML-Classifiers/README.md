@@ -55,3 +55,23 @@ It is important to scale features (0 to 1) for optimal performance and accuracy.
 ### Classification Metrics:
 
 1.
+
+### Logistic Regression
+
+Logistic Regression can be used for `linear` and `binary` classification problems
+
+> NOTE: Despite the name it is a classification model **NOT** a regression model
+
+- performs well on linearly separable classes
+- widely used for classification
+- linear model for binary classification
+
+> NOTE: logistic regression can be generalized to multiclass settings--`multinomial regression` aka `softmax regression`. Another way to use logistic regression in multiclass settings is via the OvR technique
+
+The basis for the classification of an example via logistic regression relies on `odds` (i.e. $\frac{p}{(1-p)}$) where p is the probability that an example belongs to class 1 given its feature set.
+
+The `logit function` is defined as the logarithm of the odds (log-odds):
+
+$$
+\text{logit}(p) = \logarhim{\frac{p}{(1-p)}}
+$$

@@ -14,10 +14,13 @@ from utils import plot_decision_regions
 
 iris = datasets.load_iris()
 
+# instantiate the Standard Scaler class to standardize features (0 to 1)
 sc = StandardScaler()
 ppn = Perceptron(eta0=0.01, random_state=1)
 
+# Select only features from columns at index 2 and 3
 X = iris.data[:, [2, 3]]  # extract all rows and the 2nd and 3rd columns
+# true label array
 y = iris.target
 
 print("Class Labels:", np.unique(y))
@@ -34,12 +37,16 @@ print("Labels counts in y:", np.bincount(y))
 print("Labels counts in y_train:", np.bincount(y_train))
 print("Labels counts in y_test:", np.bincount(y_test))
 
-sc.fit(X_train)  # estimates the sample mean and deviation for each feature dimension
-X_train_std = sc.transform(X_train)  # standardizes the data with the mean and std dev
+# Call the fit method from the  StandardScaler class to find the mean and std dev needed to standardize values
+sc.fit(X_train)
+
+# Standardize the feature columns
+X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
+# Fit perceptron to standardized training data
 ppn.fit(X_train_std, y_train)
-
+# Make inference on test data
 y_pred = ppn.predict(X_test_std)
 
 print("Misclassified examples: %d" % (y_test != y_pred).sum())
