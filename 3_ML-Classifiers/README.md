@@ -94,4 +94,4 @@ $$
 
 where z = net input = $w^Tx + b$
 
-Note that, $\sigma{(z)} -> 1 $ as $z -> \inf$
+Note that, $\sigma{(z)} -> 1$ as $z -> \inf$
