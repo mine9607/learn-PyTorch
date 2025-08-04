@@ -89,5 +89,5 @@ $$
 The inverse logit function is called the `logistic sigmoid function` aka `sigmoid function` due to its characteristic S shape
 
 $$
-\sigma{(z)} = \frac{1}{1+exp{-z}}
+\sigma{(z)} = \frac{1}{1+e^{-z}}
 $$
