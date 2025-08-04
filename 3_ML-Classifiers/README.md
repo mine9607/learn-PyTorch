@@ -75,3 +75,11 @@ The `logit function` is defined as the logarithm of the odds (log-odds):
 $$
 \text{logit}(p) = \log{\frac{p}{(1-p)}}
 $$
+
+The logit function taks values in the range 0 to 1 and transforms thme into values over the entire real number range
+
+In logistic regression we **_ASSUME_** that there is a linear relationship between the `weighted inputs` ($w_ix_i$), aka net inputs and the `log-odds`
+
+$$
+\text{logit}(p) = w_1x_1 + ... + w_mx_m + b = \sum_{i=j}{w_jx_j} + b = w^Tx+b
+$$
