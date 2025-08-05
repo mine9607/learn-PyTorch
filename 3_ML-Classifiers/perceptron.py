@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-sys.path.append(os.path.abspath("../2_Simple-Classification"))
+sys.path.append(os.path.abspath("../2_Simple-Classification/"))
 from utils import plot_decision_regions
 
 iris = datasets.load_iris()
