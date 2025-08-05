@@ -95,3 +95,11 @@ $$
 where z = net input = $w^Tx + b$
 
 Note that, $\sigma{(z)}$ goes to 1 as z goes to $\infty$, and $\sigma{(z)}$ goes to 0 as z goes to $-\infty$
+
+> NOTE: The ONLY difference between the `Adaline` and `logistic regression` is the **activation function** (`sigmoid function`)
+
+The `output` of the activation function is the `probability` that a particular examples belongs to `class 1`, given its features **x**
+
+This output then can easily be converted to a binary decision function where if $\sigma{(z)} >= 0.5$ then the example belongs to class 1, otherwise it belongs to class 0
+
+The logistic regression model not only predicts an outcome (predicted label) but also the probability that it will occur. Very popular in predicting the weather and in healthcare outcomes.
