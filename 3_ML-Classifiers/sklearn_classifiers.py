@@ -31,6 +31,10 @@ X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
 lr.fit(X_train_std, y_train)
+print(lr.predict_proba(X_test_std[:3, :]), "\n")
+print(lr.predict_proba(X_test_std[:3, :]).argmax(axis=1), "\n")
+print(lr.predict(X_test_std[:3, :]), "\n")
+print(lr.predict(X_test_std[0, :].reshape(1, -1)), "\n")
 
 X_combined_std = np.vstack((X_train_std, X_test_std))
 y_combined = np.hstack((y_train, y_test))
