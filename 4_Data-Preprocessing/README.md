@@ -115,6 +115,8 @@ print(y)
 
 ### Encoding Features (Nominal)
 
+#### One-hot Encoding
+
 Use one-hot encoding to ensure classification model doesn't associate an order with the values
 
 ```python
@@ -125,5 +127,34 @@ color_ohe = OneHotEncoder()
 # Apply the ecoder to only the color column (X[:,0].reshape(-1,1))
 color_values = color_ohe.fit_transform(X[:, 0].reshape(-1,1)).toarray()
 print(color_values)
+```
+
+#### Column Transformer
+
+```python
+from sklearn.compose import ColumnTransformer
+
+X = df[['color', 'size', 'price']].values
+c_transf = ColumnTransformer(
+    transformers=[
+        ("onehot", OneHotEncoder(sparse=False), [0]),
+    ],
+    remainder="drop",
+)
+
+results = c_transf.fit_transform(X).values
+print(results)
+```
+
+#### Get Dummies
+
+```python
+pd.get_dummies(df[['price', 'color', 'size']], drop_first=True)
+```
+
+## Partitioning Data: Train Test Split
+
+```python
+from sklearn.model_selection import train_test_split
 
 ```
