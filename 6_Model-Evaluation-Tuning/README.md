@@ -139,3 +139,21 @@ We have previously only been looking at `prediction accuracy` as the metric to e
 ### Confusion Matrix
 
 A `confusion matrix` is a square matrix that reports the counts of the `true positive (TP)`, `true negative (TN)`, `false positive (FP)` and `false negative (FN)` prediction of a classifier
+
+### Errror & Accuracy
+
+$$
+{ERR} = \frac{\text{FP}+\text{FN}}{\text{FP}+\text{FN}+\text{TP}+\text{TN}}
+$$
+
+$$
+{ACC} = 1 - ERR
+$$
+
+### True Positive Rate (TPR)
+
+$$
+{FPR} = \frac{FP}{N} = \frac{FP}{FP + FN}
+$$
+
+### True Negative Rate (TNR)
