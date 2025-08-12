@@ -188,3 +188,11 @@ The F1 score aims to balance the precision-recall tradeoff
 $$
 {F1} = 2\frac{PRE \times REC}{PRE + REC}
 $$
+
+### Matthews Correlation Coefficient (MMC)
+
+Summarizes a confusion matrix:
+
+$$
+MCC = \frac{TP \times TN - FP \times FN}{\sqrt{{(TP + FP)(TP + FN)(TN+FP)(TN+FN)}}
+$$
