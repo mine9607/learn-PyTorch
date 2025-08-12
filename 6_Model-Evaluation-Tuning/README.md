@@ -143,7 +143,7 @@ A `confusion matrix` is a square matrix that reports the counts of the `true pos
 ### Errror & Accuracy
 
 $$
-{ERR} = \frac{\text{FP}+\text{FN}}{\text{FP}+\text{FN}+\text{TP}+\text{TN}}
+{ERR} = \frac{FP+FN}{FP+FN+TP+TN}
 $$
 
 $$
