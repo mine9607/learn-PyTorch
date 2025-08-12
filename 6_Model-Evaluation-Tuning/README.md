@@ -55,3 +55,87 @@ Train/holdout split -> CV on training set
 The advantage is that in each iteration, each example will be used exactly once and the training and test folds are dijoint (no overlap)
 
 ![How k-fold cross-validation works](./k-folds.png)
+
+A good standard value of k in k-fold CV is 10. But when working with relatively small training sets (increase the number of folds).
+
+Increasing the number of folds (k), increases the training data that will be used in each iteration.
+
+Increasing the number of folds (k), increases the runtime of cross-validation and yield estimates with higher variance(overfit) since each fold will be more similar to each other.
+
+A slight improvement can be made using the `stratified k-fold cross-validation` technique
+
+## Debugging algorithms with learning and validation curves
+
+Two diagnostic tools that help improve the performance of a learning algorithm:
+
+1. Learning Curves (vary data size - keep model fixed)
+
+   - X-axis: training set size (fraction or number of examples)
+   - Y-axis: model performance (train score & CV validation score)
+   - Purpose: show how MORE DATA affects bias/variance and where performance plateaus
+
+2. Validation Curves (vary hyperparameter - keep data size fixed)
+   - X-axis: single hyperparameter value (C in SVM, tree depth, learning rate, etc)
+   - Y-axis: model performance (train score & CV validation score)
+   - Purpose: show how tuning that hyperparameter affects over/underfitting
+
+### Diagnosing bias and variance problems with Learning Curves
+
+Plotting model training accuracy and validation accuracy as functions of the training dataset size--we can detect whether the model suffers from high variance (overfitting) or high bias (underfitting)
+
+## Addressing over- and under-fitting with validation curves
+
+Validation curves are related to learning curves, but instead of plotting the training and test accuracies as functions of the sample size, we vary the `values` of the model `parameters` (e.g. - inverse regularization parameter C)
+
+## Fine-tuning machine learning models via grid-search
+
+There are two types of parameters:
+
+1. Those learned from the training data (e.g. model weights in logistic regression)
+2. Parameters of a learning algorithm that are optimized separately (`tuning parameters`--e.g. inverse regularization parameter)
+
+`grid search` - helps to improve the performance of a model by finding the `optimal combination of hyperparameter values`
+
+> NOTE: It is a brute-force exhaustive search paradigm
+
+We specify the list of values for different hyperparameters, and the computer evaluates the model performance for each combination
+
+## Exploring hyperparameter configurations with Random Search
+
+In `randomized search` we draw hyperparameter configurations randomly from distributions. In contrast to grid search, randomized search does **NOT** do an exhautive search over the hyperparameter space--still it allows us to explore a wider range of hyperparameter values settings in a more cost- and time-effective manner.
+
+## Resource-efficient hyperparameter search with Successive Halving
+
+scikit-learn's `HalvingRandomSearchCV` makes finding suitable hyperparameter configurations more efficient
+
+`Successive halving` - successively throws out unpromising hyperparameter configurations until only one configuration remains
+
+#### Steps to Successive Halving
+
+1. Draw a large set of candidate configurations via random sampling
+2. Train the models with limited resources, for example, a small subset of the training data (as opposed to entire training set
+3. Discard the bottom 50 percent based on predictive performance
+4. Go back to step 2 with an increased amount of available resources
+
+## Algorithm selection with nested cross-validation
+
+`Nested cross-validation` is the recommended approach to select among different machin learning algorithms
+
+In `nested cross-validation`, we have an outer k-fold cross-validation loop to split the data into training and test folds, and an inner loop is used to select the model using k-fold cross-validation on the training fold.
+
+After model selection, the test fold is then used to evaluate the model performance.
+
+We can perform nested cross-validation in scikit-learn with grid search
+
+## Looking at differnt performance evaluation metrics
+
+We have previously only been looking at `prediction accuracy` as the metric to evaluate a model's performance. However, there are several others:
+
+- precision
+- recall
+- F1 score
+- Matthews Correlation Coefficient (MCC)
+
+### Confusion Matrix
+
+A `confusion matrix` is a square matrix that reports the counts of the `true positive (TP)`, `true negative (TN)`, `false positive (FP)` and `false negative (FN)` prediction of a classifier
