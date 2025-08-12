@@ -194,5 +194,5 @@ $$
 Summarizes a confusion matrix:
 
 $$
-MCC = \frac{TP \times TN - FP \times FN}{\sqrt{{(TP + FP)(TP + FN)(TN+FP)(TN+FN)}}
+MCC = \frac{TP \times TN - FP \times FN}{\sqrt{(TP + FP)(TP + FN)(TN+FP)(TN+FN)}}
 $$
