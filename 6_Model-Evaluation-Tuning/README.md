@@ -150,10 +150,41 @@ $$
 {ACC} = 1 - ERR
 $$
 
-### True Positive Rate (TPR)
+### False Positive Rate (FPR) & False Negative Rate (FNR)
 
 $$
-{FPR} = \frac{FP}{N} = \frac{FP}{FP + FN}
+{FPR} = \frac{FP}{N} = \frac{FP}{FP + TN}
 $$
 
-### True Negative Rate (TNR)
+$$
+{TPR} = \frac{TP}{P} = \frac{TP}{FN + TP}
+$$
+
+### Precision (PRE) and Recall (REC)
+
+Precision - fraction of true positives in identified positives (1 == perfect prediction | < 1 == false positives exist). Of all things predicted as positive, how many were actually positive
+
+$$
+{PRE} = \frac{TP}{TP+FP}
+$$
+
+Recall - fraction of correctly predicted true positives. (1 == perfect prediction | < 1 == some false values predictedas true. How good is the model at finding all the 'positive' cases
+
+$$
+{REC} = \frac{TP}{FN+TP}
+$$
+
+Ex: With tumor dataset--optimizing for recall helps with minimizing the chance of NOT DETECTING a malignant tumor. This comes at cost of predicting "malignant" tumor in patients with "benign" tumors.
+
+Tradeoff - improving recall leads to higher false positives (patient told they have cancer when they don't), improving precision leads to higher false negatives (patient told they don't have cancer when they do)
+
+Optimize recall = higher false positives
+Optimize precision = higher false negatives
+
+### F1 Score
+
+The F1 score aims to balance the precision-recall tradeoff
+
+$$
+{F1} = 2\frac{PRE \times REC}{PRE + REC}
+$$
