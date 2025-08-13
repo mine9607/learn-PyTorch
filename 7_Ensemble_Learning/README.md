@@ -166,11 +166,11 @@ Explaining Gradient Boosting applied to Binary Classification:
    - For each leaf node $R_{jm}$, compute a value $\gamma_{jm}$ that minimizes the logistic loss function
 
    $$
-   \gamma_{jm} = \arg\min_{\gamma} \sumL(y_i, F_{m-1}(x_i)+\gamma) = log(1 + e^{\hat{y_i}+\gamma})-y_i(\hat{y_i}+\gamma)
+   \gamma_{jm} = \arg\min_{\gamma} \sumL(y_i, F_{m-1}(x_i)+\gamma) = \log(1 + e^{\hat{y_i}+\gamma})-y_i(\hat{y}_i+\gamma)
    $$
 
    $$
-   \gamma_{jm} = \frac{\sum_i(y_i - p_i)}{\sum_ip_i(i-p_i)}
+   \gamma_{jm} = \frac{\sum_i(y_i - p_i)}{\sum_i(p_i(i-p_i))}
    $$
 
 ### Illustrating gradient boosting for classification
