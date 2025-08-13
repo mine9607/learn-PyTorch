@@ -178,8 +178,8 @@ Ex: With tumor dataset--optimizing for recall helps with minimizing the chance o
 
 Tradeoff - improving recall leads to higher false positives (patient told they have cancer when they don't), improving precision leads to higher false negatives (patient told they don't have cancer when they do)
 
-Optimize recall = higher false positives
-Optimize precision = higher false negatives
+Optimize recall = higher false positives (minimize false negatives)
+Optimize precision = higher false negatives (minimize false positives)
 
 ### F1 Score
 
@@ -191,8 +191,27 @@ $$
 
 ### Matthews Correlation Coefficient (MMC)
 
-Summarizes a confusion matrix:
+Summarizes a confusion matrix--harder to interpret but considered a superior metric to F1 score
 
 $$
 MCC = \frac{TP \times TN - FP \times FN}{\sqrt{{(TP + FP)(TP + FN)(TN+FP)(TN+FN)}}}
 $$
+
+### Receiver Operating Characteristic (ROC)
+
+ROC graphs are useful to select models for classification based on their performance with respect to the FPR and TPR, which are computed by shifting the decision threshold of the classifier.
+
+The diagonal of the ROC graph can be interpreted as `random guessing` and models that fall below the diagonal are considered as worse than random guessing.
+
+A perfect model would be in the top left corner of the graph and have a TPR = 1 and an FPR = 0
+
+We compute the area under the curve (ROC AUC) to characterize the performance of a classification model
+
+## Imbalance Class Problem
+
+Common approaches to deal with imbalanced classes:
+
+- increase minority class weighting
+- upsample minority class
+- downsample majority class
+- generate synthetic minority class examples

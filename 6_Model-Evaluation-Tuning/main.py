@@ -5,10 +5,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import scipy.stats
+from numpy import interp
 from sklearn.decomposition import PCA
 from sklearn.experimental import enable_halving_search_cv
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import (
+    auc,
+    confusion_matrix,
+    f1_score,
+    matthews_corrcoef,
+    precision_score,
+    recall_score,
+    roc_curve,
+)
 from sklearn.model_selection import (
     GridSearchCV,
     HalvingRandomSearchCV,
@@ -23,6 +32,7 @@ from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.utils import resample
 
 df = pd.read_csv(
     "https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer-wisconsin/wdbc.data",
@@ -319,3 +329,95 @@ ax.xaxis.set_ticks_position("bottom")
 plt.xlabel("Predicted label")
 plt.ylabel("True label")
 plt.show()
+
+
+pre_val = precision_score(y_true=y_test, y_pred=y_pred)
+print(f"Precision: {pre_val:.3f}")
+
+rec_val = recall_score(y_true=y_test, y_pred=y_pred)
+print(f"Recall: {rec_val:.3f}")
+
+f1_val = f1_score(y_true=y_test, y_pred=y_pred)
+print(f"F1: {f1_val:.3f}")
+
+mcc_val = matthews_corrcoef(y_true=y_test, y_pred=y_pred)
+print(f"MCC: {mcc_val:.3f}")
+
+# RECEIVER OPERATING CHARACTERISTIC
+
+pipe_lr = make_pipeline(
+    StandardScaler(),
+    PCA(n_components=2),
+    LogisticRegression(penalty="l2", random_state=1, solver="lbfgs", C=100.0),
+)
+
+X_train2 = X_train[:, [4, 14]]
+cv = list(StratifiedKFold(n_splits=3).split(X_train, y_train))
+fig = plt.figure(figsize=(7, 5))
+mean_tpr = 0.0
+mean_fpr = np.linspace(0, 1, 100)
+all_tpr = []
+
+for i, (train, test) in enumerate(cv):
+    probas = pipe_lr.fit(X_train2[train], y_train[train]).predict_proba(X_train2[test])
+    fpr, tpr, thresholds = roc_curve(y_train[test], probas[:, 1], pos_label=1)
+    mean_tpr += interp(mean_fpr, fpr, tpr)
+    mean_tpr[0] = 0.0
+    roc_auc = auc(fpr, tpr)
+    plt.plot(fpr, tpr, label=f"ROC fold {i+1} (area = {roc_auc:.2f})")
+
+plt.plot(
+    [0, 1],
+    [0, 1],
+    linestyle="--",
+    color=(0.6, 0.6, 0.6),
+    label="Random guessing (area=0.5)",
+)
+
+mean_tpr /= len(cv)
+mean_tpr[-1] = 1.0
+mean_auc = auc(mean_fpr, mean_tpr)
+plt.plot(mean_fpr, mean_tpr, "k--", label=f"Mean ROC (area = {mean_auc:.2f})", lw=2)
+plt.plot(
+    [0, 0, 1],
+    [0, 1, 1],
+    linestyle=":",
+    color="black",
+    label="Perfect performance (area=1.0)",
+)
+
+plt.xlim([-0.05, 1.05])
+plt.ylim([-0.05, 1.05])
+plt.xlabel("False positive rate")
+plt.ylabel("True positive rate")
+plt.legend(loc="lower right")
+plt.show()
+
+# Imbalanced Classes
+
+X_imb = np.vstack((X[y == 0], X[y == 1][:40]))
+y_imb = np.hstack((y[y == 0], y[y == 1][:40]))
+
+y_pred = np.zeros(y_imb.shape[0])
+print(np.mean(y_pred == y_imb) * 100)
+
+print("Number of class 1 examples before:", X_imb[y_imb == 1].shape[0])
+
+# Resample minority class with replacement
+X_upsampled, y_upsampled = resample(
+    X_imb[y_imb == 1],
+    y_imb[y_imb == 1],
+    replace=True,
+    n_samples=X_imb[y_imb == 0].shape[0],
+    random_state=123,
+)
+
+print("Number of class 1 examples after:", X_upsampled.shape[0])
+
+# Stack original class 0 samples with the upsampled class 1 subset to obtain a balanced dataset
+
+X_bal = np.vstack((X[y == 0], X_upsampled))
+y_bal = np.hstack((y[y == 0], y_upsampled))
+
+y_pred = np.zeros(y_bal.shape[0])
+print(np.mean(y_pred == y_bal) * 100)
