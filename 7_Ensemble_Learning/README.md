@@ -102,7 +102,7 @@ The key concept is to focus on training examples that are `hard to classify`--e.
    - Predict class labels (y_pred) = predict(Cj, X)
    - Compute the weighted error rate (eta) = $w \cdot (y_{pred} \neq y)$
    - Compute the coefficient alpha_j = $0.5 \log{\frac{1-\eta}{\eta}}$
-   - Update the weights: w := $w \times \exp(-\alpha*j \times y*{pred} \times y)$
+   - Update the weights: w := $w \times \exp(-\alpha_j \times y_{pred} \times y)$
    - Normalize the weights to sum to 1: w := $w/\sum_j=1^m{(\alpha_j \times {predict}(C_j, X)) > 0$
 
 ### Applying AdaBoost using scikit-learn
