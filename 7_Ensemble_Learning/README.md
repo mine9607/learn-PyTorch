@@ -108,13 +108,69 @@ The key concept is to focus on training examples that are `hard to classify`--e.
 
 ### Applying AdaBoost using scikit-learn
 
+See Code
+
 ## Gradient boosting--training an ensemble based on loss gradients
+
+`Gradient boosting` is a variant of the boosting concept--successfully training weak learners to create a strong learner
 
 ### Comparing AdaBoost with gradient boosting
 
+`AdaBoost` - trains decision tree stumps based on errors of the previous decision tree stump
+
+`Gradient Boosting`- fits decision trees in an iterative fashion using prediction errors. Gradient boosting trees are deeper than decision tree stumps and typically have a maximum depth of `3 to 6` (or a maximum number of `8 to 64 leaf nodes`)
+
+Gradient boosting does not use the prediction errors for assigning sample weights--they are used directly to form the target variable for fitting the next tree. Also, instead of having an individual weighting term for each tree, gradient boosting uses a global learning rate that is the same for each tree.
+
 ### Outlining the general gradient boosting algorithm
 
+- Gradient boosting builds a series of trees, where each tree is fit on the error--the difference between the label and the prediction of the previous tree.
+
+- In each round, the tree ensemble improves as we are nudging each tree more in the right direction via small updates
+
+- Updates are based on a loss gradient
+
+1. Initialize a model to return a constant prediction value (use a decision tree root node--single leaf)
+   We denote the value returned by the tree as y_hat and find this value by minimizing a differentiable loss function
+
+2. For each tree (m) = 1, ... , M -- where M is user-specified total number of trees, we carry out the following:
+   - Compute the difference between a predicted value and the class label (error) sometimes referred to as `pseudo-residual` and is written as the negative gradient of the loss function (VERY VERY SIMILAR TO MODEL TRAINING)
+   - Fit a tree to the pseudo-residuals
+   - For each leaf node (R*jm), we compute the following output value: $gamma*{jm} = argmin \sum{L(y*i, F*{m-1}(x_i)+ \gamma)$
+   - Update the model by adding the output values $\gamma_m$ to the previous tree
+
 ### Explaining the gradient boosting algorithm for classification
+
+Explaining Gradient Boosting applied to Binary Classification:
+
+1. Create a root node that minimizes the logistic loss.
+
+   - Returns the log(odds), $\hat{y}$
+
+2. For each tree m = 1, ..., M, carry out the following:
+
+   1. convert log(odds) into a probability using the logistic function (same as logistic regression)
+
+   $$
+   p = \frac{1}{1+e^{-\hat{y}}
+   $$
+
+   2. compute the pseudo-residual which is the negative partial derivative of the loss wrt the log(odds)
+
+   $$
+   -\frac{\partial L_i}{\partial \hat{y_i}} = y_i - p_i
+   $$
+
+   3. Fit a new tree to the pseudo-residuals
+   4. For each leaf node $R_{jm}$, compute a value $\gamma_{jm}$ that minimizes the logistic loss function
+
+   $$
+   \gamma_{jm} = argmin\sumL(y_i, F_{m-1}(x_i)+\gamma) = log(1 + e^{\hat{y_i}+\gamma})-y_i(\hat{y_i}+\gamma)
+   $$
+
+   $$
+   \gamma_{jm} = \frac{\sum_iy_i - p_i}{\sum_ip_i(i-p_i)}
+   $$
 
 ### Illustrating gradient boosting for classification
 

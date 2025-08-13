@@ -4,10 +4,11 @@ from itertools import product
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from scipy.optimize._lsq.trf import update_tr_radius
 from scipy.special import comb
 from sklearn.base import BaseEstimator, ClassifierMixin, clone
 from sklearn.datasets import load_iris
-from sklearn.ensemble import BaggingClassifier
+from sklearn.ensemble import AdaBoostClassifier, BaggingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, auc, roc_curve
 from sklearn.model_selection import GridSearchCV, cross_val_score, train_test_split
@@ -366,3 +367,64 @@ plt.text(
     transform=axarr[1].transAxes,
 )
 plt.show()
+
+# Walkthrough AdaBoost
+
+# Calculate the weighted error rate (epsilon)
+y = np.array([1, 1, 1, -1, -1, -1, 1, 1, 1, -1])
+y_hat = np.array([1, 1, 1, -1, -1, -1, -1, -1, -1, -1])
+
+correct = y == y_hat
+weights = np.full(10, 0.1)
+print(weights)
+
+# NOTE: '~' is the bitwise NOT (bitwise inversion) operator - flips all bits
+epsilon = np.mean(~correct)
+print(epsilon)
+
+# Compute alpha_j coefficient
+alpha_j = 0.5 * np.log((1 - epsilon) / epsilon)
+print(alpha_j)
+
+# Update the weight vector w for correctly classified examples
+update_if_correct = 0.1 * np.exp(-alpha_j * 1 * 1)
+print(update_if_correct)
+
+# Update the weight vector w for misclassified examples
+update_if_wrong_1 = 0.1 * np.exp(-alpha_j * 1 * -1)
+print(update_if_wrong_1)
+
+# Alternatively
+# update_if_wrong_2 = 0.1 * np.exp(-alpha_j * -1 * 1)
+
+# Update the weights
+weights = np.where(correct == 1, update_if_correct, update_if_wrong_1)
+print(weights)
+
+# normalize the weights
+normalized_weights = weights / np.sum(weights)
+print(normalized_weights)
+
+# Applying AdaBoost in ScikitLearn
+
+tree = DecisionTreeClassifier(criterion="entropy", random_state=1, max_depth=1)
+
+ada = AdaBoostClassifier(
+    base_estimator=tree, n_estimators=500, learning_rate=0.1, random_state=1
+)
+
+tree = tree.fit(X_train, y_train)
+y_train_pred = tree.predict(X_train)
+y_test_pred = tree.predict(X_test)
+tree_train = accuracy_score(y_train, y_train_pred)
+tree_test = accuracy_score(y_test, y_test_pred)
+print(f"Decision Tree train/test accuracies {tree_train:.3f}/{tree_test:.3f}")
+
+ada = ada.fit(X_train, y_train)
+y_train_pred = ada.predict(X_train)
+y_test_pred = ada.predict(X_test)
+ada_train = accuracy_score(y_train, y_train_pred)
+ada_test = accuracy_score(y_test, y_test_pred)
+print(f"Decision Tree train/test accuracies {ada_train:.3f}/{ada_test:.3f}")
+
+# Gradient Boosting
