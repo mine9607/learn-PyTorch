@@ -4,11 +4,16 @@ from itertools import product
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import xgboost as xgb
 from scipy.optimize._lsq.trf import update_tr_radius
 from scipy.special import comb
 from sklearn.base import BaseEstimator, ClassifierMixin, clone
 from sklearn.datasets import load_iris
-from sklearn.ensemble import AdaBoostClassifier, BaggingClassifier
+from sklearn.ensemble import (
+    AdaBoostClassifier,
+    BaggingClassifier,
+    GradientBoostingClassifier,
+)
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, auc, roc_curve
 from sklearn.model_selection import GridSearchCV, cross_val_score, train_test_split
@@ -428,3 +433,17 @@ ada_test = accuracy_score(y_test, y_test_pred)
 print(f"Decision Tree train/test accuracies {ada_train:.3f}/{ada_test:.3f}")
 
 # Gradient Boosting
+model = xgb.XGBClassifier(
+    n_estimators=1000,
+    learning_rate=0.01,
+    max_depth=4,
+    random_state=1,
+    use_label_encoder=False,
+)
+
+gbm = model.fit(X_train, y_train)
+y_train_pred = gbm.predict(X_train)
+y_test_pred = gbm.predict(X_test)
+gbm_train = accuracy_score(y_train, y_train_pred)
+gbm_test = accuracy_score(y_test, y_test_pred)
+print(f"XGBoost train/test accuracies {gbm_train:.3f}/{gbm_test:.3f}")

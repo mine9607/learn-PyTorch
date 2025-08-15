@@ -166,16 +166,28 @@ $$
 - For each leaf node $R_{jm}$, compute a value $\gamma_{jm}$ that minimizes the logistic loss function
 
 $$
-\gamma_{jm} = \arg\min_{\gamma} \sum (L(y_i, F_{m-1}(x_i)+\gamma)) = \log(1 + e^{\hat{y_i}+\gamma})-y_i(\hat{y}_i+\gamma)
+\gamma_{jm} = \arg\min_{\gamma} \sum L(y_i, F_{m-1}(x_i)+\gamma) = \log(1 + e^{\hat{y_i}+\gamma})-y_i(\hat{y}_i+\gamma)
 $$
 
 $$
 \gamma_{jm} = \frac{\sum_i(y_i - p_i)}{\sum_i(p_i(i-p_i))}
 $$
 
+Note that the summation here is only over the examples at the leaf node, **NOT** the complete training set
+
+- update the model by adding the gamma value with the learning rate $\eta$
+
+$$
+F_m(x) = F_{m-1}(x) + \eta\gamma_m
+$$
+
 ### Illustrating gradient boosting for classification
 
+See Code
+
 ### Using XGBoost
+
+See Code
 
 ## Additional Resources:
 
