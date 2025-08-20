@@ -6,6 +6,22 @@
 
 ### What is PyTorch
 
+PyTorch is a scalable and multi-platform programming interface for implementing and running machine learning algorithms.
+
+PyTorch allows execution on CPUs, GPUs and XLA devices (TPUs).
+
+`Tensors` can be understood as a generalization of `scalars`, `vectors`, `matrices`, etc.
+
+- A `scalar` is a rank-0 tensor
+
+- A `vector` is a rank-1 tensor
+
+- A `matrix` is a rank-2 tensor
+
+- `Matrices` can be thought of as "stacked matrixes" (in 3D) this is a rank-3 tensor
+
+![Different types of tensor in PyTorch](./tensors.png)
+
 ## First Steps with PyTorch:
 
 ### Installing PyTorch
