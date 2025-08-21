@@ -1,12 +1,16 @@
+import enum
 import os
 import pathlib
+from itertools import islice
 
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+import torchvision
 import torchvision.transforms as transforms
 from PIL import Image
 from torch.utils.data import DataLoader, Dataset, TensorDataset
+from torchvision.datasets import CelebA
 
 t = torch.arange(6, dtype=torch.float32)
 data_loader = DataLoader(t)
@@ -158,4 +162,24 @@ for i, example in enumerate(image_dataset):
     ax.set_title(f"{example[1]}", size=15)
 
 plt.tight_layout()
+plt.show()
+
+#### Get CelebA DAtaset ####
+
+image_path = "./"
+celeba_dataset = CelebA(image_path, split="train", target_type="attr", download=False)
+
+assert isinstance(celeba_dataset, torch.utils.data.Dataset)
+
+example = next(iter(celeba_dataset))
+print(example)
+
+fig = plt.figure(figsize=(12, 8))
+for i, (image, attributes) in islice(enumerate(celeba_dataset), 18):
+    ax = fig.add_subplot(3, 6, i + 1)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.imshow(image)
+    ax.set_title(f"{attributes[31]}", size=15)
+
 plt.show()
