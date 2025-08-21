@@ -50,7 +50,7 @@ use the `torch.utils.dataset.TensorDataset()` method to merge two tensors
 joint_dataset = TensorDataset(t_x, t_y)
 ```
 
-### `Shuffle`, `batch`, and `repeat`
+### Shuffle, batch, and repeat
 
 Use the arguments passed to the `torch.utils.dataset.Dataloader()` method to shuffle and batch a dataset
 
@@ -58,7 +58,14 @@ Use the arguments passed to the `torch.utils.dataset.Dataloader()` method to shu
 data_loader = DataLoader(dataset = joint_dataset, batch_size =2, shuffle=True)
 ```
 
+The dataset should be shuffled and iterated over once per epoch (i.e. at the start of each pass over the training data the dataset should be randomly shuffled)
+
 ### Creating a dataset from files on local storage disk
+
+We need two additional modules:
+
+- `Image in PIL` - read the image file contents
+- `transforms in torchvision` - to decode raw contents and resize the images
 
 ### Fetching available datasets from the `torchvision.datasets` library
 
