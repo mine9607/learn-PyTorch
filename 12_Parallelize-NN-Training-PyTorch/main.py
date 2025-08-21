@@ -61,6 +61,75 @@ t_sqz = torch.squeeze(t, 2)
 print("Squeeze: ", t.shape, " --> ", t_sqz.shape)
 
 #### Applying Mathematical Operators ####
+# Element-wise
 
+torch.manual_seed(1)
+t1 = 2 * torch.rand(5, 2) - 1
+t2 = torch.normal(mean=0, std=1, size=(5, 2))
+print(t1)
+print(t2)
+
+t3 = torch.multiply(t1, t2)
+print(t3)
+
+t4 = torch.mean(t1, axis=0)
+print(t4)
+
+t5 = torch.matmul(t1, torch.transpose(t2, 0, 1))
+print(t5)
+print(t5.shape)
+
+t6 = torch.matmul(torch.t(t1), t2)
+print(t6)
+print(t6.shape)
+
+norm_t1 = torch.linalg.norm(t1, ord=2, dim=1)
+print(norm_t1)
+print(norm_t1.shape)
 
 #### Split, Stack, Concatenate Tensors ####
+
+# Split a Tensor using torch.chunk()
+"""
+torch.chunk() - divides a tensor into a list of equally sized tensors
+"""
+
+print("\nSPLITTING")
+
+# providing the number of splits
+torch.manual_seed(1)
+t = torch.rand(6)
+print(t)
+
+t_splits = torch.chunk(t, 3)
+print([item.numpy() for item in t_splits])
+
+# providing the sizes of different splits
+t = torch.rand(5)
+t_splits = torch.split(t, split_size_or_sections=[3, 2])
+print(t_splits)
+print([item.numpy() for item in t_splits])
+
+# Stack (concatenate) Tensors using torch.stack() or torch.cat()
+
+"""
+torch.stack() - 
+torch.cat()
+"""
+print("\nCONCATENATING")
+A = torch.ones(3)
+B = torch.zeros(2)
+C = torch.cat([A, B], axis=0)
+
+print(A)
+print(B)
+print(C)
+
+print("\nSTACKING")
+A = torch.ones(3)
+B = torch.zeros(3)
+S = torch.stack([A, B], axis=1)
+
+print(A)
+print(B)
+print(S)

@@ -36,11 +36,27 @@ PyTorch allows execution on CPUs, GPUs and XLA devices (TPUs).
 
 ## Building Input Pipelines in PyTorch:
 
+In typical cases, the dataset is too large to fit into memory and we need to load the data from storage in chunks (batch by batch).
+
 ### Creating a PyTorch DataLoader from existing tensors
+
+If the data already exists as a tensor object, python list, or numpy array we can easily create a dataset loader using the `torch.utils.dataset.DataLoader()` class
 
 ### Combining two tensors into a joint dataset
 
+use the `torch.utils.dataset.TensorDataset()` method to merge two tensors
+
+```python
+joint_dataset = TensorDataset(t_x, t_y)
+```
+
 ### `Shuffle`, `batch`, and `repeat`
+
+Use the arguments passed to the `torch.utils.dataset.Dataloader()` method to shuffle and batch a dataset
+
+```python
+data_loader = DataLoader(dataset = joint_dataset, batch_size =2, shuffle=True)
+```
 
 ### Creating a dataset from files on local storage disk
 
