@@ -143,7 +143,7 @@ The benefit of `nn.Module` over the `nn.Sequential` class is that it allows us t
 - multiple outputs
 - intermediate branches
 
-### Writing Custom layers in PyTorch
+## Writing Custom layers in PyTorch
 
 Used when you want to create a layer that isn't supported by PyTorch or customizing an existing layer
 
@@ -169,3 +169,5 @@ class NoisyLiner(nn.Module):
         return torch.add(torch.mm(x_new, self.w), self.b)
 
 ```
+
+## Project
